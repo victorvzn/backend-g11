@@ -96,3 +96,7 @@ estado_civil = 'D'
 #     continue
 #   print(number)
 
+cadena_texto = 'Hola, soy alumno del G11 backend'
+
+for letra in cadena_texto:
+  print(letra)
