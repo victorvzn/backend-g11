@@ -125,9 +125,34 @@ DROP TABLE alumnos;
 'Callejon Bravo', 14, 'A dos casas de la reja', 3
 
 
+INSERT INTO direcciones (direccion, numero, referencia, alumno_id)
+VALUES
+  ('Calle los Girasoles', 750, 'Al costado de la polleria', 1),
+  ('Calle Los aviadores', 1050, NULL,2),
+  ('Av El Sol', 125, 'Del ovalo a media cuadra', 1),
+  ('Av Los Gallos', 777, NULL, 3),
+  ('Av Tupac Yupanqui', 123, NULL, 7),
+  ('Av Siempre viva', 7840, 'Al frente de la ferreteria', 8),
+  ('Calle Los martires', 6520, NULL, 5),
+  ('Pasaje de las flores', 526, NULL, 4),
+  ('Alameda Chabuca', 740, 'Dos cuadras de la piscina', 6),
+  ('Callejon Bravo', 14, 'A dos casas de la reja', 3);
+
+
 -- 1. Buscar todas las direcciones que sean calles
+SELECT * FROM direcciones WHERE direccion LIKE 'Calle%';
 -- 2. Listar todas las direcciones sin referencia
+SELECT * FROM direcciones WHERE referencia IS NULL;
 -- 3. Listar todas las direcciones que sean menores que 1000
+SELECT * FROM direcciones WHERE numero < 1000;
 -- 4. Listar todas las direcciones que sean o Av o Pasaje
+SELECT * FROM direcciones WHERE direccion LIKE 'Av%' OR direccion LIKE 'Pasaje%';
 -- 5. Listar todas las direcciones de los alumnos 1 o que vivan en calles o que no tengan referencias
+SELECT * FROM direcciones WHERE alumno_id = 1 OR direccion LIKE 'Calle%' OR referencia = NULL;
 -- 6. Listar todas las direcciones que sean calle y que su referencia no sea nula y que su alumno sea el 1
+SELECT * FROM direcciones WHERE (direccion LIKE 'Calle%' OR referencia <> NULL) AND alumno_id = 1;
+
+
+
+
+
