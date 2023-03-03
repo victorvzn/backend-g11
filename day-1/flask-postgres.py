@@ -115,15 +115,11 @@ def gestion_alumno(id):
         alumno = cursor.fetchone()
 
         if alumno == None:
-            return {
-                "message": "Alumno no existe"
-            }
+            return { "message": "Alumno no existe" }
 
         cursor.execute(
             'UPDATE ALUMNOS SET nombre=%s, apellido=%s, matriculado=%s WHERE id = %s',
-            (
-                data.get('nombre'), data.get('apellido'), data.get('matriculado'), id
-            )
+            (data.get('nombre'), data.get('apellido'), data.get('matriculado'), id)
         )
 
         conexion.commit()
@@ -141,14 +137,9 @@ def gestion_alumno(id):
         alumno = cursor.fetchone()
 
         if alumno == None:
-            return {
-                "message": "Alumno no existe"
-            }
+            return { "message": "Alumno no existe" }
 
-        cursor.execute(
-            'DELETE FROM alumnos WHERE id = %s',
-            (id,)
-        )
+        cursor.execute('DELETE FROM alumnos WHERE id = %s', (id,))
 
         conexion.commit()
 
