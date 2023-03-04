@@ -45,3 +45,4 @@ INSERT INTO niveles (numero, descripcion) VALUES (1, 'Los que recien ingresan al
 * https://flask-restful.readthedocs.io/en/latest/
 * https://tecsup.webex.com/tecsup-sp/url.php?frompanel=false&gourl=https%3A%2F%2Fdocs.sqlalchemy.org%2Fen%2F20%2Fcore%2Fmetadata.html
 * https://tecsup.webex.com/tecsup-sp/url.php?frompanel=false&gourl=https%3A%2F%2Fdocs.sqlalchemy.org%2Fen%2F20%2Fcore%2Ftype_basics.html
+* https://marshmallow.readthedocs.io/en/stable/
