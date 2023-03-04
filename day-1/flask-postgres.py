@@ -105,7 +105,7 @@ def gestion_alumno(id):
         }
     
     if request.method == 'PUT':
-        # TODO: Recibir la información del body y el id por la url y modificar la data del alumno, primero validar si el alumno existe, si no existe no hacer ninguna modificacion, si existe hacer la modificacion
+        # TODO: ✔ Recibir la información del body y el id por la url y modificar la data del alumno, primero validar si el alumno existe, si no existe no hacer ninguna modificacion, si existe hacer la modificacion
         data = request.json
 
         cursor = conexion.cursor()
@@ -129,7 +129,7 @@ def gestion_alumno(id):
         return { 'message': 'Alumno actualizado correctamente '}
 
     if request.method == 'DELETE':
-        # TODO: Recibir el id por la url y validar si el alumno existe, si existe, eliminarlo (hacer un delete) caso contrario indicar que el alumno no existe
+        # TODO: ✔ Recibir el id por la url y validar si el alumno existe, si existe, eliminarlo (hacer un delete) caso contrario indicar que el alumno no existe
         cursor = conexion.cursor()
 
         cursor.execute('SELECT * FROM alumnos WHERE id = %s', (id,))
