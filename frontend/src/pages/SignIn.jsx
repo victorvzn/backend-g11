@@ -24,7 +24,8 @@ export const SignIn = () => {
     const data = await response.json();
 
     if (status === 200) {
-      localStorage.setItem("token", data.content);
+      console.log(data)
+      localStorage.setItem("token", data.token);
       navigate("/tareas");
     } else {
       setAlert({ message: data.message, type: "error", show: true });

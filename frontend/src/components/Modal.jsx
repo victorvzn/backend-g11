@@ -31,6 +31,8 @@ export const Modal = ({ setShowModal, showModal }) => {
       const data = await response.json();
       if (status === 201) {
         console.log(data);
+        setShowModal(false)
+        location.reload()
       } else {
         console.log(data);
       }
