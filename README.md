@@ -30,3 +30,7 @@ CREATE DATABASE tareas;
 * https://flask-jwt-extended.readthedocs.io/en/stable/
 * https://jwt.io/
 * https://flask-jwt-extended.readthedocs.io/en/stable/options/
+
+** FIRMA frontend
+
+https://www.figma.com/file/BMW7aKyYsYqbjuoyXsoC1a/Tareas-APP?node-id=0-1&t=7PoLuq4wINcgxudo-0
