@@ -47,6 +47,7 @@ class TareaController(Resource):
         # TODO: utilizando query params poder recibir el nombre, fecha_vencimiento o el estado y devolver solamente esas tareas con esos filtros especializados solo del usuario
         query_params = request.args.to_dict().copy()
         query_params['usuarioId'] = usuario_id
+        print(query_params)
         try:
             dto = TareaFiltros()
             parametros = dto.load(query_params)

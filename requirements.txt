@@ -18,10 +18,11 @@ marshmallow==3.19.0
 marshmallow-enum==1.5.1
 marshmallow-sqlalchemy==0.29.0
 packaging==23.0
-psycopg2==2.9.5
+psycopg2-binary==2.9.5
 PyJWT==2.6.0
+python-dotenv==1.0.0
 pytz==2022.7.1
 six==1.16.0
-SQLAlchemy==2.0.5.post1
+SQLAlchemy==2.0.6
 typing_extensions==4.5.0
 Werkzeug==2.2.3

@@ -22,7 +22,8 @@ class UsuariosController(Resource):
                 correo = data_validada.get('correo'), 
                 password= password_hashed_str, 
                 nombre = data_validada.get('nombre'), 
-                apellido = data_validada.get('apellido'))
+                apellido = data_validada.get('apellido')
+            )
 
             conexion.session.add(nuevo_usuario)
             conexion.session.commit()
