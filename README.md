@@ -1,22 +1,49 @@
-# Repositorio: Backend de Codigo G11
+# Repositorio: Backend de Codigo G11 - Semana05
 
-<p align="center">
-  <img src="https://assets.website-files.com/624b2bd5b7be89e20392d489/624e1be85a96e3ac3e45f7fb_logo-color-go.svg" />
-</p>
+# Enunciado para crear el diagrama de base de datos con https://dbdiagram.io/d
 
-Este será el repositorio del curso para el módulo de Backend.
+```
+Se requiere un sistema para almacenar los articulos de una libreria, en la cual en los productos se debe almacenar: nombre, precio, fecha_creacion, categoria, imagen.
 
-Las semanas estarán distribuidas por _branches_(ramas) en la cual cada semana será una _branch_.
+A su vez, la categoria debe contener: nombre, imagen, estado.
 
-A continuación, las semanas:
+Ademas, se debe gestionar las operaciones por los usuarios siendo estos ADMIN o PERSONAL (los ADMIN solo pueden crear y eliminar cat y prod) y los trabajadores (PERSONAL) solo pueden visualizar y editar.
 
-- Semana 01 (LINK)(https://www.google.com)
-- Semana 02
-- Semana 03
-- Semana 04
-- Semana 05
-- Semana 06
-- Semana 07
-- Semana 08
-- Semana 09
-- Semana 10
+Un usuario debe tener su nombre, apellido, correo, password, tipo siendo
+este por defecto PERSONAL (solo un ADMIN puede crear otro ADMIN)
+```
+
+### Comando usados
+
+```
+python -m venv venv
+
+source venv/Scripts/activate
+
+pip install flask flask-restful flask-sqlalchemy flask-cors marshmallow marshmallow-sqlalchemy python-dotenv psycopg2-binary
+
+python.exe -m pip install --upgrade pip
+
+pip freeze > requirements.txt
+
+pip install -r requirements.txt
+
+flask db init => inicializar las migraciones
+
+flask db migrate -m "Agregue tabla niveles" => crear una nueva migracion
+
+flask db upgrade  => ejecuta las migraciones en la base de datos
+
+psql -u username
+
+CREATE DATABASE tareas;
+
+\c tareas
+
+\dl
+```
+
+
+### Enlaces
+
+* ----
