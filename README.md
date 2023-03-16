@@ -29,7 +29,6 @@ python.exe -m pip install --upgrade pip
 pip freeze > requirements.txt
 
 pip install -r requirements.txt
-
 ```
 
 ### Comandos en Posgtres
@@ -39,9 +38,13 @@ psql -U postgres
 
 CREATE DATABASE libreria;
 
-\c tareas
+\c libreria
 
-\dl
+\dt
+
+\d usuarios
+
+SEECT * FROM usuarios;
 
 ```
 
