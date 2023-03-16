@@ -22,7 +22,7 @@ source venv/Scripts/activate
 
 pip install flask flask-restful flask-sqlalchemy flask-cors marshmallow marshmallow-sqlalchemy python-dotenv psycopg2-binary
 pip install Flask-Migrate
-
+pip install bcrypt
 
 python.exe -m pip install --upgrade pip
 
@@ -50,7 +50,7 @@ CREATE DATABASE libreria;
 ```
 flask db init => Inicializa las migraciones
 
-flask db migrate -m "Agregue tabla niveles" => crear una nueva migracion
+flask db migrate -m "Agregue tabla usuarios" => crear una nueva migracion
 
 flask db upgrade  => ejecuta las migraciones en la base de datos
 ```
