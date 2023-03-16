@@ -13,7 +13,7 @@ Un usuario debe tener su nombre, apellido, correo, password, tipo siendo
 este por defecto PERSONAL (solo un ADMIN puede crear otro ADMIN)
 ```
 
-### Comando usados
+### Comando usados en el proyecto
 
 ```
 python -m venv venv
@@ -21,6 +21,8 @@ python -m venv venv
 source venv/Scripts/activate
 
 pip install flask flask-restful flask-sqlalchemy flask-cors marshmallow marshmallow-sqlalchemy python-dotenv psycopg2-binary
+pip install Flask-Migrate
+
 
 python.exe -m pip install --upgrade pip
 
@@ -28,21 +30,30 @@ pip freeze > requirements.txt
 
 pip install -r requirements.txt
 
-flask db init => inicializar las migraciones
+```
 
-flask db migrate -m "Agregue tabla niveles" => crear una nueva migracion
+### Comandos en Posgtres
 
-flask db upgrade  => ejecuta las migraciones en la base de datos
+```
+psql -U postgres
 
-psql -u username
-
-CREATE DATABASE tareas;
+CREATE DATABASE libreria;
 
 \c tareas
 
 \dl
+
 ```
 
+### Comandos para manejar las migraciones
+
+```
+flask db init => Inicializa las migraciones
+
+flask db migrate -m "Agregue tabla niveles" => crear una nueva migracion
+
+flask db upgrade  => ejecuta las migraciones en la base de datos
+```
 
 ### Enlaces
 
