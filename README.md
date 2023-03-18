@@ -60,4 +60,4 @@ flask db upgrade  => ejecuta las migraciones en la base de datos
 
 ### Enlaces
 
-* ----
+* https://tedboy.github.io/flask/generated/werkzeug.html
