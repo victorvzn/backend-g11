@@ -17,6 +17,7 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL')
 app.config['UPLOAD_FOLDER'] = '/uploads/imagenes'
+# app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024  # 10MB max-limit.
 
 connection.init_app(app)
 
@@ -30,6 +31,12 @@ def enviar_correo_prueba():
     enviar_correo_adjuntos('xxxx@gmail.com', 'Correo con imagenes por Victor Villazon')
 
     return { 'message': 'Correo enviado exitosamente' }
+
+# @app.errorhandler(413)
+# def page_not_found(e):
+#     return {
+#         'message': 'Archivo es muy pesado. Max. 10MB.'
+#     }, 413
 
 api.add_resource(RegistroController, '/registro')
 api.add_resource(ImagenesController, '/imagenes', '/imagenes/<nombre>')
