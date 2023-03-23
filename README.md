@@ -1,22 +1,13 @@
-# Repositorio: Backend de Codigo G11
+# Backend de Codigo G11 -  Django reservas
 
-<p align="center">
-  <img src="https://assets.website-files.com/624b2bd5b7be89e20392d489/624e1be85a96e3ac3e45f7fb_logo-color-go.svg" />
-</p>
+```
+python -m venv venv
 
-Este será el repositorio del curso para el módulo de Backend.
+source venv/Scripts/activate
 
-Las semanas estarán distribuidas por _branches_(ramas) en la cual cada semana será una _branch_.
+pip install django
 
-A continuación, las semanas:
-
-- Semana 01 (LINK)(https://www.google.com)
-- Semana 02
-- Semana 03
-- Semana 04
-- Semana 05
-- Semana 06
-- Semana 07
-- Semana 08
-- Semana 09
-- Semana 10
+django-admin startproject NOMBRE -> crea un nuevo proyecto en la ubicación de la terminal
+python manage.py startapp NOMBRE -> crea una nueva aplicacion para el proyecto
+python manage.py runserver       -> levanta el servidor de django en DESARROLLO
+```
