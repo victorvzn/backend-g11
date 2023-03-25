@@ -25,6 +25,10 @@ python.exe manage.py migrate
 pip install psycopg2-binary
 
 python.exe manage.py createsuperuser > da un formulario para crear un superusuario con acceso al panel administrativo
+
+python.exe manage.py makemigrations
+
+python.exe manage.py sqlmigrate gestion 0001 > Mostrar en lenguaje SQL que contiene esa migración
 ```
 
 ```

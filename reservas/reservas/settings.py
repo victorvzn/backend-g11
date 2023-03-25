@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gestion',
+    # sirve para indicar que ahora vamos a poder acceder a todos los recursos de DRF
+    'rest_framework', 
 ]
 
 MIDDLEWARE = [
@@ -126,3 +128,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Sirve para modificar el comportamiento de la libreria DRF
+
+REST_FRAMEWORK = {
+    # PAGE_SIZE > para indicar cuantos elementos vamos a retornar por cada pagina
+    'PAGE_SIZE': 2,
+    # Que clase utilizara para realizar la paginacion
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+}
