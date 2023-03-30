@@ -1,5 +1,27 @@
 # Backend de Codigo G11 - Veterinaria
 
+**Enunciado:**
+
+Tool: https://dbdiagram.io/d
+
+>  Se requiere guardar las mascotas de un usuario, estas mascotas tienen su 
+>  nombre, sexo (Masculino, Femenino), fecha_nacimiento, alergias, foto 
+>  a su vez los clientes pueden tener : nombre, apellido, correo, password, 
+>  un cliente puede tener varias mascotas y se necesita que cada mascota lleve 
+>  un historial de ventas, las ventas pueden tener en su cabecera: 
+>  id, total, fecha, serie, numero
+>  y en su detalle de las ventas:
+>  cantidad, descripcion (producto), precio, importe
+>  (multiplicacion de la cantidad y el precio)
+>  ademas su tabla de productos en la cual tendremos: id, nombre, precio, disponibilidad
+>  y por ultimo manejar la informacion de la siguiente manera
+>  se debe de registrar a todo el personal de la veterinaria y solo el personal 
+>  autorizado puede agregar, editar o desabilitar productos
+>  usuarios (esta tabla sera la tabla de clientes) agregar a esa tabla 
+>  tipo_usuario (CLIENTE, ADMINISTRADOR)
+
+### Comandos
+
 ```bash
 python -m venv venv
 

@@ -1,0 +1,59 @@
+table mascotas {
+  id SERIAL pk
+  nombre text
+  sexo SEXO_MASCOTA
+  fecha_nacimiento datetime
+  alergias text
+  foto text
+  cliente_id int
+}
+
+table usuarios {
+  id serial pk
+  nombre text
+  apellido text
+  correo text unique
+  password text
+  tipo_usuario TIPO_USUARIO
+
+}
+
+table cabecera_ventas{
+  id serial pk
+  total float
+  fecha datetime
+  serie text
+  numero text
+  mascota_id int
+}
+
+table detalle_ventas {
+  id serial pk
+  cantidad int
+  precio float
+  importe float
+  producto_id int
+  cabecera_venta_id int
+}
+
+table productos {
+  id serial pk
+  nombre text
+  precio float
+  disponibilidad boolean
+}
+
+enum SEXO_MASCOTA {
+  MACHO
+  HEMBRA
+}
+
+enum TIPO_USUARIO {
+  CLIENTE
+  ADMINISTRADOR
+}
+
+ref: usuarios.id < mascotas.cliente_id
+ref: mascotas.id < cabecera_ventas.mascota_id
+ref: cabecera_ventas.id < detalle_ventas.cabecera_venta_id
+ref: productos.id < detalle_ventas.producto_id

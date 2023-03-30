@@ -1,0 +1,59 @@
+Enum TIPO_SEXO {
+  MASCULINO
+  FEMENINO
+}
+
+Enum TIPO_USUARIO {
+  CLIENTE
+  ADMINISTRADOR
+}
+
+Table mascotas {
+  id serial [pk]
+  nombre text
+  sexo TIPO_SEXO
+  fecha_nacimiento datetime
+  alergias text
+  foto text
+  cliente_id int
+}
+
+Table clientes {
+  id serial [pk]
+  nombre text
+  apellido text
+  correo text unique
+  password text
+  tipo_usuario TIPO_USUARIO
+}
+
+Table venta_cabecera {
+  id serial [pk]
+  serie text
+  numero text
+  fecha datetime
+  total float
+  cliente_id int
+}
+
+Table venta_detalle {
+  id serial [pk]
+  cantidad int
+  precio float
+  import float
+
+  producto_id int
+  cabecera_id int
+}
+
+Table productos {
+  id serial [pk]
+  nombre text
+  precio float
+  disponibilidad text
+}
+
+Ref: "mascotas"."cliente_id" > "clientes"."id"
+Ref: "venta_cabecera"."cliente_id" > "clientes"."id"
+Ref: "venta_detalle"."producto_id" > "productos"."id"
+Ref: "venta_detalle"."cabecera_id" > "venta_cabecera"."id"
