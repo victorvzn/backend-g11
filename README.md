@@ -15,7 +15,7 @@ pip install -r requirements.txt
 
 
 django-admin startproject veterinaria -> crea un nuevo proyecto en la ubicación de la terminal
-python.exe manage.py startapp NOMBRE -> crea una nueva aplicacion para el proyecto
+python.exe manage.py startapp gestion -> crea una nueva aplicacion para el proyecto
 python.exe manage.py runserver       -> levanta el servidor de django en DESARROLLO
 
 python.exe manage.py showmigrations -> mostrara todas las migraciones en mi proyecto y las que no se ha ejecutado se mostrara 'vacia' [ ] y las que si [X]
