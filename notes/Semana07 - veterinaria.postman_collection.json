@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "8927fe8c-a701-4b17-a77b-e21cc67d98f0",
+		"name": "Semana07 - veterinaria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registrar usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Maria\",\r\n    \"apellido\": \"Cervantes\",\r\n    \"correo\": \"mariacervantes@gmail.com\",\r\n    \"password\": \"Welcome123\",\r\n    \"tipoUsuario\": \"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/registrar",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"registrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\": \"mariacervantes@gmail.com\",\r\n    \"password\": \"Welcome123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/login/",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "perfil",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwMjM3MjczLCJpYXQiOjE2ODAyMzI3NzMsImp0aSI6ImY5NjRjYzMyYzQzYjQyNjQ4Y2Q5ZGY5NTk5YzM2MDE4IiwidXNlcl9pZCI6Mn0.SLHe_zcReR86mWueduErhFnxlRVFP3u9o3EL0dh9QFg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/perfil",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"perfil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mascotas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwMjM3MjczLCJpYXQiOjE2ODAyMzI3NzMsImp0aSI6ImY5NjRjYzMyYzQzYjQyNjQ4Y2Q5ZGY5NTk5YzM2MDE4IiwidXNlcl9pZCI6Mn0.SLHe_zcReR86mWueduErhFnxlRVFP3u9o3EL0dh9QFg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/mascotas/",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"mascotas",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://127.0.0.1:8000",
+			"type": "default"
+		}
+	]
+}

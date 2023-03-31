@@ -71,4 +71,10 @@ python manage.py makemigrations gestion --name cree_tabla_mascotas
 
 ### Resources
 
+* https://jwt.io/
 * https://docs.djangoproject.com/en/4.1/topics/auth/customizing/
+* https://cloudinary.com/documentation/image_upload_api_reference
+* https://www.django-rest-framework.org/api-guide/authentication/
+* https://django-rest-framework-simplejwt.readthedocs.io/en/latest/
+* https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html
+* https://www.django-rest-framework.org/api-guide/permissions/
