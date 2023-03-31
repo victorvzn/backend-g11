@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from os import environ
 from dotenv import load_dotenv
+from cloudinary import config, uploader, api
 
 load_dotenv()
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'gestion',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # https://docs.djangoproject.com/en/4.1/topics/auth/customizing/#substituting-a-custom-user-model
 AUTH_USER_MODEL = 'gestion.Usuario'
+
+# Cloudinary CONFIG
+
+config(
+    cloud_name = environ.get('CLOUDINARY_NAME'),
+    api_key = environ.get('CLOUDINARY_API_KEY'),
+    api_secret = environ.get('CLOUDINARY_API_SECRET'),
+    secure = True,
+)

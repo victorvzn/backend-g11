@@ -20,7 +20,20 @@ Tool: https://dbdiagram.io/d
 >  usuarios (esta tabla sera la tabla de clientes) agregar a esa tabla 
 >  tipo_usuario (CLIENTE, ADMINISTRADOR)
 
-### Comandos
+### Django admin Credentials
+
+```bash
+python.exe manage.py createsuperuser
+
+Correo: admin@veterinaria.com
+Nombre: Victor
+Apellido: Woff
+TipoUsuario: ADMIN
+Password: admin 
+```
+
+
+### Commands
 
 ```bash
 python -m venv venv
@@ -51,6 +64,8 @@ pip install psycopg2-binary
 python.exe manage.py createsuperuser > da un formulario para crear un superusuario con acceso al panel administrativo
 
 python.exe manage.py sqlmigrate gestion 0001 > Mostrar en lenguaje SQL que contiene esa migración
+
+python manage.py makemigrations gestion --name cree_tabla_mascotas
 ```
 
 
