@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.request import Request
-from .serializers import RegistroUsuarioSerializer
-from .models import Usuario
+from .serializers import RegistroUsuarioSerializer, MascotasSerializer
+from .models import Usuario, Mascota
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
@@ -40,15 +40,41 @@ class PerfilUsuario(APIView):
         # TODO: Devolver el usaurio, NO DEVOLVER EL PASSWORD solamente el nombre, apellido, correo y tipoUsuario utilizando un serializador
         return Response(data={ 'content': '' })
 
-class Mascotas(APIView):
+class MascotasView(APIView):
     permission_classes = [IsAuthenticated, SoloClientes,]
 
     def post(self, request: Request):
         foto = request.FILES.get('foto')
-        print(foto)
+        # print(foto)
         resultado = uploader.upload(foto)
+    
+        data = {
+            'nombre': request.data.get('nombre'), 
+            'sexo': request.data.get('sexo'),
+            'fechaNacimiento': request.data.get('fechaNacimiento'),
+            'alergias': request.data.get('alergias'),
+            'foto': resultado.get('url'),
+            'cliente': request.data.get('cliente'),
+        }
+
+        serializador = MascotasSerializer(data=data)
+
+        if serializador.is_valid():
+            serializador.save()
+            return Response(data={
+                'message': 'Mascota creada exitosamente',
+                'content': serializador.data,
+            }, status=status.HTTP_201_CREATED)
+        else:
+            return Response(data={
+                'message': 'Error al crear la mascota',
+                'content': serializador.errors
+            }, status=status.HTTP_400_BAD_REQUEST)
+    
+    def get(self, request: Request):
+        mascotas = Mascota.objects.all()
+        serializador = MascotasSerializer(mascotas, many=True)
 
         return Response(data={
-            'message': 'Mascota creada exitosamente',
-            'content': resultado,
-        }, status=status.HTTP_201_CREATED)
+            'content': serializador.data,
+        }, status=status.HTTP_200_OK)
