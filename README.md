@@ -66,6 +66,8 @@ python.exe manage.py createsuperuser > da un formulario para crear un superusuar
 python.exe manage.py sqlmigrate gestion 0001 > Mostrar en lenguaje SQL que contiene esa migración
 
 python manage.py makemigrations gestion --name cree_tabla_mascotas
+
+python manage.py collectstatic
 ```
 
 
