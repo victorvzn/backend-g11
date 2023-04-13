@@ -1,22 +1,2 @@
-# Repositorio: Backend de Codigo G11
+# Backend de Codigo G11 - Nodejs Intro
 
-<p align="center">
-  <img src="https://assets.website-files.com/624b2bd5b7be89e20392d489/624e1be85a96e3ac3e45f7fb_logo-color-go.svg" />
-</p>
-
-Este será el repositorio del curso para el módulo de Backend.
-
-Las semanas estarán distribuidas por _branches_(ramas) en la cual cada semana será una _branch_.
-
-A continuación, las semanas:
-
-- Semana 01 (LINK)(https://www.google.com)
-- Semana 02
-- Semana 03
-- Semana 04
-- Semana 05
-- Semana 06
-- Semana 07
-- Semana 08
-- Semana 09
-- Semana 10
