@@ -37,7 +37,7 @@ class PerfilUsuario(APIView):
     def get(self, request: Request):
         print(request.user)
         print(request.auth)
-        # TODO: Devolver el usaurio, NO DEVOLVER EL PASSWORD solamente el nombre, apellido, correo y tipoUsuario utilizando un serializador
+        # TODO: Devolver el usuario, NO DEVOLVER EL PASSWORD solamente el nombre, apellido, correo y tipoUsuario utilizando un serializador
         return Response(data={ 'content': '' })
 
 class MascotasView(APIView):
