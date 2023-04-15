@@ -26,7 +26,8 @@ export const devolverCategoria = async (req, res) => {
   const { id } = req.params
 
   const categoria = await Prisma.categoria.findFirst({
-    where: { id: Number(id) }
+    where: { id: Number(id) },
+    include:  { productos: true}
   })
 
   if (!categoria) {
