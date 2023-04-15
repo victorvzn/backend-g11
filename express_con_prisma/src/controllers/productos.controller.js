@@ -58,19 +58,12 @@ export const devolverProducto = async (req, res) => {
 }
 
 export const actualizarProducto = async (req, res) => {
-  // TODO:
-
-  // 127.0.0.1:3000/productos/1 > /:id
+  // TODO: agregar la actualización de productos
 
   const { id } = req.params
-  const body = req.body
-
-  // SELECT * FROM productos;
-  // SELECT id FROM productos;
+  const data = req.body
 
   const producto = await Prisma.producto.findFirst({
-    // where: { id: parseInt(id) },
-    // where: { id: +id },
     where: { id: Number(id) },
     select: { id: true }
   })
@@ -79,14 +72,18 @@ export const actualizarProducto = async (req, res) => {
     return res.status(400).json({ message: 'Producto no existe' })
   }
 
-  const productoActualizada = await Prisma.producto.update({
-    where: { id: producto.id },
-    data: body
-  })
+  const productoActualizado = await Prisma.producto
+    .update({
+      where: { id: producto.id },
+      data: {
+        ...data,
+        fechaVencimiento: new Date(data.fechaVencimiento)
+      }
+    })
 
   res.json({
     message: "Producto se actualizo exitosamente",
-    content: productoActualizada
+    content: productoActualizado
   })
 }
 
