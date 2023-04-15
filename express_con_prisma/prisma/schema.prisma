@@ -16,5 +16,26 @@ model Categoria {
   descripcion String?
   disponibilidad Boolean @default(true)
 
+  productos Producto[]
+
   @@map("categorias")
+}
+
+model Producto {
+  id Int @id @default(autoincrement())
+  nombre String
+  precio Float
+  fechaVencimiento DateTime @map("fecha_vencimiento")
+  categoriaId Int @map("categoria_id")
+
+  // Creamos las relaciones
+  categoria Categoria @relation(fields: [categoriaId], references: [id])
+
+  // No se puede repetir los valores de nombre-precio-categoriaId
+  // Shampoo 1.50 1 ✅
+  // Shampoo 2.30 1 ✅
+  // Shampoo 1.50 2 ✅
+  // Shampoo 2.30 1 ❌ (ya existe)
+  @@unique([nombre, precio, categoriaId])
+  @@map("productos")
 }

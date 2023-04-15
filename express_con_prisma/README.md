@@ -15,3 +15,4 @@ npm prisma migrate dev -> crea una nueva migración en base a los cambios realiz
 
 * https://www.prisma.io/docs/concepts/components/prisma-cli
 * Extension VSCode Prisma: https://marketplace.visualstudio.com/items?itemName=Prisma.prisma
+* https://www.prisma.io/docs/concepts/components/prisma-schema/relations
