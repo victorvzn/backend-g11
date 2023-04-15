@@ -54,7 +54,7 @@ servidor
   });
 
 servidor
-  .route("/producto/:id")
+  .route("/productos/:id")
   .get((req, res) => {
     // en base al id que sera la posicion del arreglo devolver el producto
     const { id } = req.params;
@@ -90,8 +90,25 @@ servidor
       content: productos[id],
     });
   })
-  .patch((req, res) => {
+  .patch(async (req, res) => {
     // TODO: Hacer la actualizacion parcial Por ejemplo si solo quiero cambiar el nombre o si solo quiero cambiar el nombre y el precio
+    const { id } = req.params;
+    const data = req.body
+
+    let productoEncontrado = productos[id]
+
+    if (!productoEncontrado) {
+      res.status(404).json({
+        message: "El producto no existe",
+      });
+    }
+
+    productos[id] = { ...productoEncontrado, ...data }
+
+    res.status(200).json({
+      message: "Producto actualizado exitosamente",
+      content: productos
+    });
   })
   .delete((req, res) => {
     const { id } = req.params;
