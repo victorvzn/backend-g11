@@ -35,11 +35,11 @@ export const crearProducto = async (req, res) => {
 }
 
 export const listarProductos = async (req, res) => {
-  // TODO: agregar el listar productos
+  // TODO: agregar el listar productos 
 
-  const productos = await Prisma.producto.findMany()
+  const productos = await Prisma.producto.findMany() 
 
-  res.status(200).json({ content: productos })
+  res.status(200).json({ content: productos }) 
 }
 
 export const devolverProducto = async (req, res) => {
