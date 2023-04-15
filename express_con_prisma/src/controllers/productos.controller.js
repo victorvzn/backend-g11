@@ -4,17 +4,23 @@ export const crearProducto = async (req, res) => {
   const data = req.body
 
   // SELECT id FROM categorias WHERE id = ...;
+  console.log(data)
 
-  // TODO: Validar si la categoria en la cual se 
-  const categoria = Prisma.categoria.findFirst({
-    where: { id: data.categoriaId },
-    select: { id: true },
+  // TODO: Validar si la categoria en la cual se quiere crear el producto no este deshabilitada
+  const categoria = await Prisma.categoria.findFirst({
+    where: {
+      AND: [
+        { id: data.categoriaId },
+        { disponibilidad: true }
+      ]
+    },
+    select: { id: true, disponibilidad: true },
   })
 
   if (!categoria) {
     return res.status(400).json({ message: 'Categoria no existe' })
   }
-
+  
   try {
     const nuevoProducto = await Prisma.producto
       .create({ data: {
