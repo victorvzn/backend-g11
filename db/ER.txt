@@ -1,0 +1,48 @@
+// Se necesita una base de datos para poder almacenar los productos de una tienda 
+// en la cual se tienen la siguiente informacion: Nombre, precio, precio_oferta, 
+// disponible, descripcion, procedencia
+// Adicional a ello tenemos usuarios en los cuales tienen las sgtes propiedades:
+// nombre, apellido, correo, password, tipo_usuario (ADMIN, CLIENTE)
+// HINT: averiguar como colocar ENUM en prisma
+// Un cliente puede tener un carrito en la cual puede agregar productos
+// y sus cantidades, NOTA: el usuario solo puede tener como MAXIMO 1 carrito
+
+table Producto{
+  id int pk
+  nombre text
+  precio float
+  precio_oferta float
+  disponible boolean
+  descripcion text
+  procedencia text
+}
+
+table Usuario{
+  id int pk
+  nombre text
+  apellido text
+  correo text unique
+  password text
+  tipo_usuario TIPO_USUARIO
+}
+
+table Carrito{
+  id int pk
+  usuario_id int
+}
+
+table ItemsCarrito{
+  id int pk
+  cantidad int
+  producto_id int
+  carrito_id int
+}
+
+Ref: Usuario.id - Carrito.usuario_id
+Ref: Carrito.id < ItemsCarrito.carrito_id
+Ref: Producto.id < ItemsCarrito.producto_id
+
+enum TIPO_USUARIO {
+  ADMIN
+  CLIENTE
+}

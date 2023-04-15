@@ -1,22 +1,26 @@
-# Repositorio: Backend de Codigo G11
+# Authentication + Expressjs
 
-<p align="center">
-  <img src="https://assets.website-files.com/624b2bd5b7be89e20392d489/624e1be85a96e3ac3e45f7fb_logo-color-go.svg" />
-</p>
+Proyecto para ver auth con express y prisma
 
-Este será el repositorio del curso para el módulo de Backend.
+### Enunciado del problema
 
-Las semanas estarán distribuidas por _branches_(ramas) en la cual cada semana será una _branch_.
+Se necesita una base de datos para poder almacenar los productos de una tienda en la cual se tiene la siguiente informacion: Nombre, precio, precio_oferta, disponible, descripcion, procedencia.
+Adicional a ello tenemos usuarios en los cuales tienen las siguientes propiedades: nombre, apellido, correo, password, tipo_usuario (ADMIN, CLIENTE)
+HINT: Averiguar como colocar ENUM en prisma
+Un cliente puede tener un carrito en la cual puede agregar productos y sus cantidades. NOTA: el usuario solo puede tener como MAXIMO 1 carrito.
 
-A continuación, las semanas:
+### Comandos
 
-- Semana 01 (LINK)(https://www.google.com)
-- Semana 02
-- Semana 03
-- Semana 04
-- Semana 05
-- Semana 06
-- Semana 07
-- Semana 08
-- Semana 09
-- Semana 10
+```
+npx prisma init
+
+
+```
+
+### Links
+
+* https://marmelab.com/react-admin/
+* https://www.prisma.io/docs/concepts/components/prisma-schema/relations
+* https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#model-field-scalar-types
+* https://www.prisma.io/docs/concepts/components/prisma-cli
+* https://www.prisma.io/docs/getting-started/quickstart
