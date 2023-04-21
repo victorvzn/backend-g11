@@ -19,9 +19,9 @@ model Usuario {
   id Int @id @default(autoincrement())
   nombre String
   apellido String
-  correo String
+  correo String @unique
   password String
-  tipo_usuario TIPO_USUARIO @default(CLIENTE)
+  tipoUsuario TIPO_USUARIO @default(CLIENTE) @map("tipo_usuario")
 
   carrito Carrito?
 
@@ -43,7 +43,7 @@ model Producto {
   id Int @id @default(autoincrement())
   nombre String
   precio Float
-  precio_oferta Float
+  precioOferta Float @map("precio_oferta")
   disponible Boolean
   descripcion String
   procedencia String
@@ -54,6 +54,8 @@ model Producto {
 }
 
 model ItemsCarrito {
+  id Int @id @default(autoincrement())
+
   carrito Carrito @relation(fields: [carritoId], references: [id])
   carritoId Int @map("carrito_id")
 
@@ -62,7 +64,8 @@ model ItemsCarrito {
 
   cantidad Int
 
-  @@map("items_carrito")
+  // Si queremos evitar utilizar una PK y utilizar dos o más columnas como PK entonces usamos la propiedad @@id
+  // @@id([carritoId, productoId])
 
-  @@id([carritoId, productoId])
+  @@map("items_carrito")
 }

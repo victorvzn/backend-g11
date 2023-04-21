@@ -13,8 +13,10 @@ Un cliente puede tener un carrito en la cual puede agregar productos y sus canti
 
 ```
 npx prisma init
+npm prisma migrate dev
 
-
+select * from pg_stat_database;
+select numbackends from pg_stat_database;
 ```
 
 ### Links
