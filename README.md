@@ -1,22 +1,164 @@
-# Repositorio: Backend de Codigo G11
+                                                                                                                                                                            # Backend de Codigo G11 -  Semana10 (MONGODB)
 
-<p align="center">
-  <img src="https://assets.website-files.com/624b2bd5b7be89e20392d489/624e1be85a96e3ac3e45f7fb_logo-color-go.svg" />
-</p>
+### Comandos
 
-Este será el repositorio del curso para el módulo de Backend.
+```
+db          > muestra en que base de datos nos ubicamos
+show dbs    > lista las bases de datos que existen en mi servidor
+use DB_NAME > crear y movernos a esa base de datos, si no existe la crea y si existe solamente nos movemos
 
-Las semanas estarán distribuidas por _branches_(ramas) en la cual cada semana será una _branch_.
+-- COMANDOS PRACTICOS
+-- Para insertar
+db.personas.insertOne({ nombre: 'Eduardo', apellido: 'de Rivero', correo: 'ederiveroman@gmail.com' })
+db.personas.intertMany( [ { nombre: 'Maria' }, { sexo: 'M', fechaNacimiento: new Date('1995-07-31') } ] )
+db.personas.insertMany( [ { nombre: 'Maria' }, { sexo: 'M', fechaNacimiento: new Date('1995-07-31') } ] )
+db.personas.insertOne({ nombre: 'Juan', sexo: 'M'})
+                                                                                                      
+use personas
 
-A continuación, las semanas:
+-- Para buscar
+-- SELECT * FROM personas;
+db.personas.find()
 
-- Semana 01 (LINK)(https://www.google.com)
-- Semana 02
-- Semana 03
-- Semana 04
-- Semana 05
-- Semana 06
-- Semana 07
-- Semana 08
-- Semana 09
-- Semana 10
+-- Hacer busquedas mas especificas
+db.personas.find({ $or: [ { nombre : 'Juan' }, { nombre: 'Eduardo' } ] } )
+
+
+db.personas.insertOne({ nombre: 'Victor', apellido: 'Villazón', correo: 'vvillazon@gmail.com' })
+db.personas.insertMany([{ nombre: 'Maria' }, { sexo: 'M', fechaNacimiento: new Date('1995-07-31') }])
+db.personas.find()
+db.personas.insertOne({nombre: 'Juan', sexo: 'M'})
+
+db.personas.find({ nombre: 'Juan' })
+db.personas.find({ nombre: 'Juan', sexo: 'F' })
+
+db.personas.find({ $or: [ {nombre: 'Juan' }, { nombre: 'Victor' } ] })
+
+-- Actualizaciones
+-- Primero va el valor a buscar y luego los campos a actualizar
+
+db.productos.updateOne({ nombre: 'piña'}, { $set: { precio: 5, disponible: false } } )
+
+db.productos.updateMany({ precio: { $gt: 1 } }, { $set: { disponible: false } } )
+db.productos.updateMany({ precio: { $gt: 1 } }, { $set: { disponible: true } } )
+
+db.productos.deleteOne({ nombre: 'piña' })
+db.productos.deleteMany({ precio: { $gt: 1 } })
+
+db.categorias.insertMany([
+  {
+    nombre: 'Abarrotes',
+    descripcion: 'Todo relacionado a abarrotes',
+    productos: [
+      {
+        nombre: 'Detergente ayudin',
+        descripcion: 'A la grasa le pone fin',
+        precio: 7.50
+      },
+      {
+        nombre: 'Cepillo dental',
+        descripcion: 'Poderoso Cepillo',
+        precio: 1.80
+      }
+    ]
+  },
+  {
+    nombre: 'Verduras',
+    descripcion: 'Ricas verduras para la casa',
+    productos: [
+      {
+        nombre: 'Beterraga',
+        precio: 1.50
+        descripcion: null
+      }
+    ]
+  }
+])
+```
+
+### Ejercicios
+
+```
+--- Insertar en la tabla productos los siguientes valores:
+[
+  {
+    nombre: 'piña',
+    precio: 1.80,
+    disponible: true
+  },
+  {
+    nombre: 'frambuesa',
+    precio: 5.20,
+    disponible: true
+  },
+  {
+    nombre: 'pitahaya',
+    precio: 4.50,
+    disponible: false
+  },
+  {
+    nombre: 'sauco',
+    precio: 8.50,
+    disponible: true
+  },
+]
+
+-- Buscar todos los productos cuyo nombre sea 'pitahaya'
+db.productos.find({ nombre: 'pitahaya' })
+
+-- Buscar todos los productos cuyo nombre sea 'frambuesa' o 'sauco'
+db.productos.find({ $or: [ { nombre: 'frambuesa' }, { nombre: 'sauco' } ] })
+
+-- Buscar todos los productos cuyo nombre sea 'toronja' o 'piña' y su precio sea mayor a 1.00
+db.productos.find({$or: [ { nombre: 'toronja' }, { nombre: 'piña' } ], $and: [ { precio: { $gt: 1.00 } } ] })
+db.productos.find({
+  $and: [
+    {
+      $or: [ { nombre: 'toronja' }, { nombre: 'piña' } ],
+      precio: { $gt: 1.00 }
+    }
+  ]
+})
+
+-- Buscar todos los productos que valgan menos de 5.00 y que esten disponibles
+db.productos.find({
+  $and: [
+    {
+      precio: { $lt: 5.00 },
+      disponible: { $eq: true }
+    }
+  ]
+})
+
+db.productos.find({
+  precio: {
+    $lt: 5.00
+  },
+  disponible: true
+})
+
+db.productos.find({
+  $and: [
+    {
+      precio: { $lt: 5.00 }
+    },
+    {
+      disponible: { $eq: true }
+    } 
+  ]
+})
+
+db.categorias.aggregate([
+    { $match: {nombre: 'Verduras'}},
+    { $unwind: '$productos'},
+    { $match: {'productos.precio': {$gt: 2.5}}},
+    { $group: {_id: '$_id', productos: {$push: '$productos'}}}
+])
+```
+
+
+### Links
+
+* https://www.mongodb.com/docs/manual/reference/operator/query/
+* https://www.mongodb.com/try/download/shell
+* https://stackoverflow.com/questions/15117030/how-to-filter-array-in-subdocument-with-mongodb
