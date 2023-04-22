@@ -1,7 +1,14 @@
-                                                                                                                              # Backend de Codigo G11 -  Semana10 (MONGODB)
+# Backend de Codigo G11 -  Semana10 (MONGODB)
 
+### Comandos
 
+```
+show dbs
 
+use calendarios
+
+db.usuarios.find()
+```
 
 ### Links
 
@@ -11,3 +18,4 @@
 * https://www.djongomapper.com/
 * https://flask-pymongo.readthedocs.io/en/latest/
 * https://mongoosejs.com/
+* https://www.mongodb.com/docs/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/
